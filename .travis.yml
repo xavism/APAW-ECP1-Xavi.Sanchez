@@ -1,0 +1,21 @@
+language: java
+jdk:
+- oraclejdk8
+branches:
+  only:
+  - master
+  - develop
+notifications:
+  email:
+    recipients:
+    - architect@gmail.com
+services:
+- mysql
+before_install:
+- mysql -e 'CREATE DATABASE IF NOT EXISTS bd;'
+script:
+# Calidad codigo: Sonarcloud
+- mvn org.jacoco:jacoco-maven-plugin:prepare-agent verify --settings settings.xml
+- mvn sonar:sonar -Dsonar.organization=xavism-github -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$SONAR --settings settings.xml
+# Unit Test & Integration Test
+- mvn verify --settings settings.xml
