@@ -9,9 +9,9 @@ En este caso seguiré usando la entidad dada en la retroalimentación, se buscan
 * Obtener el Nombre de un cliente y su dirección separada por un guión bajo
 
 ### Clases usadas
-* Context //Crea el contexto donde estará el método a ejecutar, en nuestro caso: writeNameAndAddress() 
-* WriteStrategy //Interfaz que declara la función interna
-* Space //Implementación del método de la interfaz usando el espacio
-* LowDash //Implementación del método de la interfaz usando el guión bajo
+* Context --> Crea el contexto donde estará el método a ejecutar, en nuestro caso: writeNameAndAddress() 
+* WriteStrategy --> Interfaz que declara la función interna
+* Space --> Implementación del método de la interfaz usando el espacio
+* LowDash --> Implementación del método de la interfaz usando el guión bajo
 
 Para cambiar de estrategia, solo se debe hacer un setStrategy del contexto, pasando una nueva estrategia que debe ser una implementación de WriteStrategy. 
